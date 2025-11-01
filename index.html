@@ -1,67 +1,79 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Katalog Produk Elektronik</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #121212;
-        color: white;
-        padding: 20px;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toko Online - Elektronik & Fashion</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: white;
+      padding: 20px;
+    }
 
-      h1 {
-        text-align: center;
-        color: #00bfff;
-      }
+    h1 {
+      text-align: center;
+      color: #00bfff;
+    }
 
-      .produk {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-        margin-top: 30px;
-      }
+    h2 {
+      margin-top: 40px;
+      color: #ff66cc;
+    }
 
-      .card {
-        background: #1e1e1e;
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        transition: 0.3s;
-      }
+    .produk {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
 
-      .card:hover {
-        transform: scale(1.05);
-        background-color: #222;
-      }
+    .card {
+      background: #1e1e1e;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      transition: 0.3s;
+    }
 
-      .nama {
-        font-size: 18px;
-        font-weight: bold;
-        color: #00bfff;
-      }
+    .card:hover {
+      transform: scale(1.05);
+      background-color: #222;
+    }
 
-      .harga {
-        color: #00ff99;
-        font-weight: bold;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Katalog Produk Elektronik</h1>
-    <div class="produk" id="daftar-produk"></div>
+    .nama {
+      font-size: 18px;
+      font-weight: bold;
+      color: #00bfff;
+    }
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    .harga {
+      color: #00ff99;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
 
-    <script>
-      $(document).ready(function () {
-        $.getJSON("api-elektronik.json", function (data) {
-          let konten = "";
-          data.forEach(function (item) {
-            konten += `
+  <h1>Toko Online</h1>
+
+  <h2>Produk Elektronik</h2>
+  <div class="produk" id="produk-elektronik"></div>
+
+  <h2>Produk Fashion</h2>
+  <div class="produk" id="produk-fashion"></div>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      // 🔹 Ambil data dari API Elektronik (punyamu)
+      $.getJSON("https://kyyajaa.github.io/toko-elektronik/api-elektronik.json", function(data) {
+        let konten = "";
+        data.forEach(function(item) {
+          konten += `
             <div class="card">
               <p class="nama">${item.nama}</p>
               <p>${item.deskripsi}</p>
@@ -69,10 +81,27 @@
               <p>Stok: ${item.stok}</p>
             </div>
           `;
-          });
-          $("#daftar-produk").html(konten);
         });
+        $("#produk-elektronik").html(konten);
       });
-    </script>
-  </body>
+
+      // 🔹 Ambil data dari API Fashion (punya kelompok 2)
+      $.getJSON("https://kyyajaa.github.io/toko-fashion/api-fashion.json", function(data) {
+        let konten = "";
+        data.forEach(function(item) {
+          konten += `
+            <div class="card">
+              <p class="nama">${item.nama}</p>
+              <p>${item.deskripsi}</p>
+              <p class="harga">Harga: Rp ${item.harga.toLocaleString()}</p>
+              <p>Stok: ${item.stok}</p>
+            </div>
+          `;
+        });
+        $("#produk-fashion").html(konten);
+      });
+    });
+  </script>
+
+</body>
 </html>
