@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "nama": "Laptop ASUS ROG",
+    "deskripsi": "Laptop gaming dengan prosesor Intel i7 dan RAM 16GB.",
+    "harga": 18500000,
+    "stok": 8
+  },
+  {
+    "id": 2,
+    "nama": "Smartphone Samsung S24",
+    "deskripsi": "HP flagship dengan kamera 200MP dan layar AMOLED.",
+    "harga": 13500000,
+    "stok": 15
+  },
+  {
+    "id": 3,
+    "nama": "Earphone Sony WF-1000XM5",
+    "deskripsi": "Earphone wireless dengan fitur noise cancelling.",
+    "harga": 3500000,
+    "stok": 25
+  },
+  {
+    "id": 4,
+    "nama": "Smartwatch Garmin Venu",
+    "deskripsi": "Jam tangan pintar dengan pelacak kebugaran lengkap.",
+    "harga": 4200000,
+    "stok": 12
+  }
+]
