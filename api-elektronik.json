@@ -26,5 +26,13 @@
     "deskripsi": "Jam tangan pintar dengan pelacak kebugaran lengkap.",
     "harga": 4200000,
     "stok": 12
+  },
+  {
+    "id": 5,
+    "nama": "Mouse gacor 68paw",
+    "deskripsi": "mouse wireless tanpa delay dan profesional.",
+    "harga": 1000000,
+    "stok": 12
   }
 ]
+
